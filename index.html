@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix Pro | Servicio Técnico de Electrónica</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header / Navegación -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🔧</span>
+                <span class="logo-text">TechFix Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#presupuesto" class="btn btn-primary nav-btn">Pedir Presupuesto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Expertos en Reparación de Electrónica</h1>
+                <p class="hero-subtitle">Recuperamos tus dispositivos con servicio profesional, rápido y garantizado. Computadoras, notebooks, consolas y más.</p>
+                <div class="hero-buttons">
+                    <a href="#presupuesto" class="btn btn-primary btn-large">Solicitar Presupuesto Gratis</a>
+                    <a href="#servicios" class="btn btn-secondary btn-large">Ver Servicios</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Diagnóstico sin cargo</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Garantía de 90 días</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Servicio express disponible</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <span class="placeholder-icon">💻🔧</span>
+                    <p>Tu dispositivo<br>en buenas manos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Soluciones profesionales para cada tipo de dispositivo</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Computadoras de Escritorio -->
+                <div class="service-card">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Computadoras de Escritorio</h3>
+                    <ul class="service-list">
+                        <li>Reparación de hardware</li>
+                        <li>Actualización de componentes</li>
+                        <li>Limpieza interna profunda</li>
+                        <li>Instalación de software</li>
+                        <li>Optimización para gaming/edición</li>
+                    </ul>
+                    <a href="#presupuesto" class="service-link">Consultar →</a>
+                </div>
+
+                <!-- Notebooks -->
+                <div class="service-card featured">
+                    <div class="service-badge">Más Popular</div>
+                    <div class="service-icon">💻</div>
+                    <h3>Notebooks & Laptops</h3>
+                    <ul class="service-list">
+                        <li>Cambio de pantalla</li>
+                        <li>Reparación de teclado</li>
+                        <li>Reemplazo de batería</li>
+                        <li>Reparación de placa madre</li>
+                        <li>Upgrade de SSD/RAM</li>
+                        <li>Limpieza de ventiladores</li>
+                    </ul>
+                    <a href="#presupuesto" class="service-link">Consultar →</a>
+                </div>
+
+                <!-- Consolas -->
+                <div class="service-card">
+                    <div class="service-icon">🎮</div>
+                    <h3>Consolas (PS4/PS5/Xbox)</h3>
+                    <ul class="service-list">
+                        <li>Limpieza de sistema de refrigeración</li>
+                        <li>Cambio de pasta térmica</li>
+                        <li>Reparación de lector de discos</li>
+                        <li>Problemas de HDMI</li>
+                        <li>Fallas de encendido</li>
+                        <li>Mantenimiento preventivo</li>
+                    </ul>
+                    <a href="#presupuesto" class="service-link">Consultar →</a>
+                </div>
+
+                <!-- Otros Dispositivos -->
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Otros Dispositivos</h3>
+                    <ul class="service-list">
+                        <li>Tablets</li>
+                        <li>Monitores</li>
+                        <li>Fuentes de poder</li>
+                        <li>Periféricos</li>
+                        <li>Equipos de audio</li>
+                        <li>Diagnóstico personalizado</li>
+                    </ul>
+                    <a href="#presupuesto" class="service-link">Consultar →</a>
+                </div>
+            </div>
+
+            <!-- Tipos de Servicio -->
+            <div class="service-types">
+                <div class="service-type-card">
+                    <div class="type-icon">🔍</div>
+                    <h4>Diagnóstico</h4>
+                    <p>Evaluación completa sin cargo para identificar el problema exacto de tu equipo.</p>
+                </div>
+                <div class="service-type-card">
+                    <div class="type-icon">⚡</div>
+                    <h4>Reparación Express</h4>
+                    <p>Servicio prioritario para reparaciones urgentes. Consulta disponibilidad.</p>
+                </div>
+                <div class="service-type-card">
+                    <div class="type-icon">🛡️</div>
+                    <h4>Mantenimiento Preventivo</h4>
+                    <p>Evita problemas futuros con limpiezas y chequeos periódicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros / Credibilidad -->
+    <section id="nosotros" class="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2 class="section-title">¿Por qué elegir TechFix Pro?</h2>
+                <p class="about-intro">Somos técnicos certificados con más de 10 años de experiencia en reparación de electrónica. Entendemos lo importante que es tu equipo para tu trabajo, estudios o entretenimiento.</p>
+                
+                <div class="credentials-grid">
+                    <div class="credential">
+                        <span class="credential-number">10+</span>
+                        <span class="credential-label">Años de experiencia</span>
+                    </div>
+                    <div class="credential">
+                        <span class="credential-number">2000+</span>
+                        <span class="credential-label">Equipos reparados</span>
+                    </div>
+                    <div class="credential">
+                        <span class="credential-number">98%</span>
+                        <span class="credential-label">Clientes satisfechos</span>
+                    </div>
+                    <div class="credential">
+                        <span class="credential-number">90</span>
+                        <span class="credential-label">Días de garantía</span>
+                    </div>
+                </div>
+
+                <div class="about-features">
+                    <div class="about-feature">
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Técnicos Certificados</strong>
+                            <p>Personal capacitado y actualizado constantemente</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Repuestos Originales</strong>
+                            <p>Utilizamos componentes de calidad garantizada</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Presupuesto Transparente</strong>
+                            <p>Sin costos ocultos, aprobás antes de reparar</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>Garantía por Escrito</strong>
+                            <p>Todas nuestras reparaciones están garantizadas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="about-image-placeholder">
+                    <span class="placeholder-icon">👨‍🔧</span>
+                    <p>Taller Profesional<br>Equipamiento de Calidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horarios y Ubicación -->
+    <section class="info-bar">
+        <div class="container info-grid">
+            <div class="info-item">
+                <span class="info-icon">🕐</span>
+                <div>
+                    <strong>Horarios de Atención</strong>
+                    <p>Lunes a Viernes: 9:00 - 19:00 hs</p>
+                    <p>Sábados: 9:00 - 13:00 hs</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">📍</span>
+                <div>
+                    <strong>Ubicación</strong>
+                    <p>Av. Principal 1234, Ciudad</p>
+                    <p>Estacionamiento disponible</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">📞</span>
+                <div>
+                    <strong>Contacto Rápido</strong>
+                    <p>Tel: (555) 123-4567</p>
+                    <p>WhatsApp disponible</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Presupuesto -->
+    <section id="presupuesto" class="quote">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Solicitá tu Presupuesto</h2>
+                <p class="section-subtitle">Completá el formulario y te contactaremos en menos de 24 horas</p>
+            </div>
+            
+            <div class="quote-form-container">
+                <form class="quote-form" id="quoteForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / WhatsApp</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="(555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="dispositivo">Tipo de Dispositivo *</label>
+                            <select id="dispositivo" name="dispositivo" required>
+                                <option value="">Seleccioná una opción</option>
+                                <option value="computadora">Computadora de Escritorio</option>
+                                <option value="notebook">Notebook / Laptop</option>
+                                <option value="ps4">PlayStation 4</option>
+                                <option value="ps5">PlayStation 5</option>
+                                <option value="xbox">Xbox</option>
+                                <option value="tablet">Tablet</option>
+                                <option value="monitor">Monitor</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="problema">Describí el Problema *</label>
+                        <textarea id="problema" name="problema" rows="4" required placeholder="Contanos qué le pasa a tu equipo, cuándo empezó el problema, si hubo algún golpe o derrame de líquido, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="urgencia">Nivel de Urgencia</label>
+                            <select id="urgencia" name="urgencia">
+                                <option value="normal">Normal (3-5 días hábiles)</option>
+                                <option value="urgente">Urgente (1-2 días hábiles)</option>
+                                <option value="express">Express (24 horas)*</option>
+                            </select>
+                            <small>* Sujeto a disponibilidad. Consultar costo adicional.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="como-nos-conocio">¿Cómo nos conociste?</label>
+                            <select id="como-nos-conocio" name="como-nos-conocio">
+                                <option value="">Seleccioná una opción</option>
+                                <option value="google">Google</option>
+                                <option value="redes">Redes Sociales</option>
+                                <option value="amigo">Recomendación</option>
+                                <option value="pasada">Ya vine antes</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        <label for="terminos">Acepto los términos y condiciones y la política de privacidad *</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large btn-full">Enviar Solicitud de Presupuesto</button>
+                    
+                    <p class="form-note">📧 Recibirás una confirmación por email. Te contactaremos dentro de las 24 horas hábiles.</p>
+                </form>
+                
+                <div class="quote-info">
+                    <h3>¿Qué pasa después?</h3>
+                    <ol class="process-steps">
+                        <li>
+                            <span class="step-number">1</span>
+                            <div>
+                                <strong>Recibimos tu solicitud</strong>
+                                <p>Te enviamos confirmación inmediata</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">2</span>
+                            <div>
+                                <strong>Te contactamos</strong>
+                                <p>Coordinamos la entrega o diagnóstico</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">3</span>
+                            <div>
+                                <strong>Diagnóstico sin cargo</strong>
+                                <p>Te informamos el problema y costo</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">4</span>
+                            <div>
+                                <strong>Reparación</strong>
+                                <p>Con tu aprobación, reparamos tu equipo</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">5</span>
+                            <div>
+                                <strong>Retiro garantido</strong>
+                                <p>Retirás tu equipo funcionando con garantía</p>
+                            </div>
+                        </li>
+                    </ol>
+                    
+                    <div class="quote-contact">
+                        <h4>¿Preferís contacto directo?</h4>
+                        <p>📞 <a href="tel:+5551234567">(555) 123-4567</a></p>
+                        <p>💬 <a href="#">WhatsApp</a></p>
+                        <p>📧 <a href="mailto:info@techfixpro.com">info@techfixpro.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contactanos</h2>
+                <p class="section-subtitle">Estamos acá para ayudarte con tu equipo</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Av. Principal 1234</p>
+                            <p>Ciudad, Provincia</p>
+                            <p>Código Postal</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p><a href="tel:+5551234567">(555) 123-4567</a></p>
+                            <p>Llamadas y WhatsApp</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@techfixpro.com">info@techfixpro.com</a></p>
+                            <p>Respondemos en 24hs</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <h4>Horarios</h4>
+                            <p>Lun-Vie: 9:00 - 19:00</p>
+                            <p>Sáb: 9:00 - 13:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-map">
+                    <div class="map-placeholder">
+                        <span>🗺️</span>
+                        <p>Mapa de ubicación</p>
+                        <small>Acá iría integrado Google Maps</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">🔧</span>
+                        <span class="logo-text">TechFix Pro</span>
+                    </a>
+                    <p>Servicio técnico profesional de electrónica. Tu confianza, nuestro compromiso.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#presupuesto">Presupuesto</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li>Computadoras</li>
+                        <li>Notebooks</li>
+                        <li>Consolas</li>
+                        <li>Mantenimiento</li>
+                        <li>Upgrades</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p>📞 (555) 123-4567</p>
+                    <p>📧 info@techfixpro.com</p>
+                    <p>🕐 Lun-Vie 9-19hs</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechFix Pro. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

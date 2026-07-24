@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Appointment } from '../data/mockData';
+import type { Appointment } from '../data/mockData';
 
 const STORAGE_KEY = 'tech-repair-appointments';
 

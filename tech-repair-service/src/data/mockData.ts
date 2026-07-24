@@ -1,346 +1,300 @@
-import { Service, Technician, Review, FAQ, Offer, GalleryImage, ContactInfo } from '@/types';
+export interface Service {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  estimatedTime: string;
+  category: 'computadora' | 'notebook' | 'consola' | 'mantenimiento' | 'datos' | 'hardware';
+  popular?: boolean;
+}
 
-export const services: Service[] = [
+export interface Technician {
+  id: string;
+  name: string;
+  specialty: string;
+  experience: number;
+  rating: number;
+  certifications: string[];
+  availableDays: string[];
+  image: string;
+}
+
+export interface Appointment {
+  id: string;
+  customerName: string;
+  phone: string;
+  email: string;
+  serviceId: string;
+  technicianId?: string;
+  date: string;
+  time: string;
+  description: string;
+  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
+  createdAt: string;
+}
+
+export interface Review {
+  id: string;
+  customerName: string;
+  rating: number;
+  comment: string;
+  date: string;
+  serviceType: string;
+  verified: boolean;
+}
+
+export interface Offer {
+  id: string;
+  title: string;
+  description: string;
+  originalPrice: number;
+  discountedPrice: number;
+  validUntil: string;
+  services: string[];
+  featured?: boolean;
+}
+
+export const SERVICES: Service[] = [
   {
     id: '1',
     name: 'Reparación de Computadoras de Escritorio',
-    description: 'Diagnóstico y reparación completa de PCs de escritorio. Solucionamos problemas de hardware y software.',
+    description: 'Diagnóstico y reparación completa de PCs de escritorio. Incluye hardware y software.',
     price: 45000,
-    estimatedTime: '2-3 días',
-    icon: 'monitor',
-    category: 'computer'
+    estimatedTime: '2-3 días hábiles',
+    category: 'computadora',
+    popular: true,
   },
   {
     id: '2',
     name: 'Reparación de Notebooks/Laptops',
-    description: 'Reparación especializada en notebooks. Cambio de pantalla, teclado, batería y más.',
+    description: 'Servicio especializado para laptops de todas las marcas. Cambio de pantalla, teclado, batería.',
     price: 55000,
-    estimatedTime: '3-5 días',
-    icon: 'laptop',
-    category: 'notebook'
+    estimatedTime: '3-5 días hábiles',
+    category: 'notebook',
+    popular: true,
   },
   {
     id: '3',
     name: 'Reparación de PS4 y Consolas',
-    description: 'Servicio técnico para PlayStation 4, Xbox y otras consolas. Limpieza, reparación de HDMI, sobrecalentamiento.',
+    description: 'Reparación de PlayStation 4, Xbox y Nintendo Switch. Problemas de HDMI, sobrecalentamiento, lector.',
     price: 40000,
-    estimatedTime: '2-4 días',
-    icon: 'gamepad',
-    category: 'console'
+    estimatedTime: '2-4 días hábiles',
+    category: 'consola',
   },
   {
     id: '4',
     name: 'Diagnóstico Técnico',
-    description: 'Evaluación completa del equipo para identificar fallas. El costo se descuenta si aceptas la reparación.',
+    description: 'Evaluación completa del equipo para identificar fallas. Se descuenta si se realiza la reparación.',
     price: 15000,
     estimatedTime: '24 horas',
-    icon: 'stethoscope',
-    category: 'other'
+    category: 'mantenimiento',
   },
   {
     id: '5',
     name: 'Mantenimiento Preventivo',
-    description: 'Limpieza interna, cambio de pasta térmica, optimización del sistema para prevenir futuras fallas.',
+    description: 'Limpieza interna, cambio de pasta térmica, optimización de sistema y actualización de drivers.',
     price: 35000,
-    estimatedTime: '1-2 días',
-    icon: 'shield-check',
-    category: 'computer'
+    estimatedTime: '1-2 días hábiles',
+    category: 'mantenimiento',
+    popular: true,
   },
   {
     id: '6',
     name: 'Recuperación de Datos',
-    description: 'Recuperación de archivos perdidos o eliminados de discos duros, SSDs y memorias.',
+    description: 'Recuperación de archivos perdidos o eliminados de discos duros, SSDs y memorias USB.',
     price: 80000,
-    estimatedTime: '3-7 días',
-    icon: 'hard-drive',
-    category: 'other'
+    estimatedTime: '3-7 días hábiles',
+    category: 'datos',
   },
   {
     id: '7',
     name: 'Actualización de Hardware',
-    description: 'Mejora el rendimiento de tu equipo con SSD, más RAM, tarjeta gráfica u otros componentes.',
+    description: 'Instalación de SSD, aumento de RAM, cambio de placa de video u otros componentes.',
     price: 30000,
-    estimatedTime: '1-2 días',
-    icon: 'cpu',
-    category: 'computer'
+    estimatedTime: '1-2 días hábiles',
+    category: 'hardware',
   },
   {
     id: '8',
     name: 'Limpieza y Optimización de Software',
     description: 'Eliminación de virus, optimización del sistema, instalación de programas y actualizaciones.',
     price: 25000,
-    estimatedTime: '1 día',
-    icon: 'sparkles',
-    category: 'other'
+    estimatedTime: '24 horas',
+    category: 'mantenimiento',
   },
-  {
-    id: '9',
-    name: 'Cambio de Piezas',
-    description: 'Reemplazo de componentes dañados: batería, pantalla, teclado, disco duro, fuente de poder.',
-    price: 35000,
-    estimatedTime: '2-3 días',
-    icon: 'wrench',
-    category: 'notebook'
-  },
-  {
-    id: '10',
-    name: 'Instalación de Sistema Operativo',
-    description: 'Instalación limpia de Windows, Linux o macOS con todos los drivers y programas esenciales.',
-    price: 20000,
-    estimatedTime: '1 día',
-    icon: 'download',
-    category: 'other'
-  }
 ];
 
-export const technicians: Technician[] = [
+export const TECHNICIANS: Technician[] = [
   {
     id: '1',
     name: 'Carlos Mendoza',
     specialty: 'Computadoras y Notebooks',
-    experience: 8,
-    certifications: ['CompTIA A+', 'Microsoft Certified', 'Apple Certified'],
+    experience: 12,
     rating: 4.9,
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
-    availableDays: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']
+    certifications: ['CompTIA A+', 'Microsoft Certified', 'Apple Certified'],
+    availableDays: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop',
   },
   {
     id: '2',
     name: 'Ana Rodríguez',
     specialty: 'Consolas y Gaming',
-    experience: 5,
-    certifications: ['Sony Certified Technician', 'Xbox Specialist'],
+    experience: 8,
     rating: 4.8,
-    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
-    availableDays: ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+    certifications: ['Sony Certified', 'Xbox Specialist'],
+    availableDays: ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop',
   },
   {
     id: '3',
     name: 'Miguel Torres',
     specialty: 'Recuperación de Datos',
-    experience: 10,
-    certifications: ['Data Recovery Specialist', 'Hard Drive Expert'],
+    experience: 15,
     rating: 5.0,
-    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
-    availableDays: ['Lunes', 'Miércoles', 'Viernes']
+    certifications: ['Data Recovery Pro', 'Forensic Certified'],
+    availableDays: ['Lunes', 'Miércoles', 'Viernes'],
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop',
   },
   {
     id: '4',
     name: 'Laura Fernández',
-    specialty: 'Software y Optimización',
-    experience: 6,
-    certifications: ['Microsoft Certified', 'Linux Professional'],
+    specialty: 'Hardware y Actualizaciones',
+    experience: 10,
     rating: 4.7,
-    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
-    availableDays: ['Lunes', 'Martes', 'Jueves', 'Sábado']
-  }
+    certifications: ['NVIDIA Certified', 'AMD Specialist'],
+    availableDays: ['Lunes', 'Martes', 'Jueves', 'Sábado'],
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop',
+  },
 ];
 
-export const reviews: Review[] = [
+export const REVIEWS: Review[] = [
   {
     id: '1',
     customerName: 'Roberto García',
     rating: 5,
-    comment: 'Excelente servicio. Mi notebook quedó como nueva después de cambiarle la pantalla. Muy profesionales y rápidos.',
+    comment: 'Excelente servicio! Repararon mi laptop en tiempo récord y quedó como nueva. Muy profesionales.',
     date: '2024-01-15',
-    serviceType: 'Reparación de Notebooks'
+    serviceType: 'Reparación de Notebooks',
+    verified: true,
   },
   {
     id: '2',
     customerName: 'María López',
     rating: 5,
-    comment: 'Recuperaron todos mis datos del disco duro que pensé que estaba perdido. ¡Increíble trabajo! Totalmente recomendados.',
+    comment: 'Recuperaron todos mis datos del disco duro que pensé que estaba perdido. Increíble trabajo!',
     date: '2024-01-10',
-    serviceType: 'Recuperación de Datos'
+    serviceType: 'Recuperación de Datos',
+    verified: true,
   },
   {
     id: '3',
     customerName: 'Juan Pérez',
     rating: 4,
-    comment: 'Muy buen servicio técnico para mi PS4. La limpieza solucionó el problema de sobrecalentamiento. Volveré si lo necesito.',
-    date: '2024-01-05',
-    serviceType: 'Reparación de Consolas'
+    comment: 'Muy buen servicio técnico. Mi PS4 funciona perfecto ahora. Recomendado 100%.',
+    date: '2024-01-08',
+    serviceType: 'Reparación de Consolas',
+    verified: true,
   },
   {
     id: '4',
-    customerName: 'Carla Martínez',
+    customerName: 'Carmen Díaz',
     rating: 5,
-    comment: 'Actualizaron mi PC con un SSD y más RAM. Ahora vuela. El precio fue justo y el servicio excelente.',
-    date: '2023-12-28',
-    serviceType: 'Actualización de Hardware'
+    comment: 'El mantenimiento preventivo hizo una gran diferencia. Mi computadora está mucho más rápida.',
+    date: '2024-01-05',
+    serviceType: 'Mantenimiento Preventivo',
+    verified: true,
   },
   {
     id: '5',
-    customerName: 'Diego Sánchez',
+    customerName: 'Fernando Ruiz',
     rating: 5,
-    comment: 'El diagnóstico fue preciso y me explicaron todo claramente. Sin dudas el mejor servicio técnico de la zona.',
-    date: '2023-12-20',
-    serviceType: 'Diagnóstico Técnico'
-  }
+    comment: 'Atención personalizada y precios justos. Definitivamente volveré cuando lo necesite.',
+    date: '2024-01-02',
+    serviceType: 'Actualización de Hardware',
+    verified: true,
+  },
 ];
 
-export const faqs: FAQ[] = [
-  {
-    question: '¿Cómo agendar una cita?',
-    answer: 'Puedes agendar una cita fácilmente a través de nuestro formulario online en la sección "Reservar Cita". Selecciona el servicio, técnico preferido, fecha y hora disponible. También puedes contactarnos por WhatsApp o teléfono.'
-  },
-  {
-    question: '¿Puedo reprogramar mi cita?',
-    answer: 'Sí, puedes reprogramar tu cita sin cargo hasta 24 horas antes. Contáctanos por teléfono, WhatsApp o email con al menos un día de anticipación.'
-  },
-  {
-    question: '¿Cuál es el horario de atención?',
-    answer: 'Atendemos de Lunes a Viernes de 9:00 a 19:00 hs y Sábados de 9:00 a 13:00 hs. Domingos y feriados cerrados.'
-  },
-  {
-    question: '¿Ofrecen servicio a domicilio?',
-    answer: 'Sí, ofrecemos servicio a domicilio para diagnósticos básicos y mantenimiento preventivo dentro de un radio de 10km. Consulta costos adicionales.'
-  },
-  {
-    question: '¿Qué métodos de pago aceptan?',
-    answer: 'Aceptamos efectivo, tarjetas de crédito y débito (hasta 3 cuotas sin interés), transferencia bancaria y Mercado Pago.'
-  },
-  {
-    question: '¿Cuál es la garantía de las reparaciones?',
-    answer: 'Todas nuestras reparaciones tienen 90 días de garantía. Si el mismo problema reaparece, lo solucionamos sin cargo adicional.'
-  },
-  {
-    question: '¿Cuánto tiempo demora una reparación típica?',
-    answer: 'Depende del servicio. Diagnósticos: 24hs. Reparaciones simples: 2-3 días. Recuperación de datos: 3-7 días. Te informaremos el tiempo estimado tras el diagnóstico.'
-  },
-  {
-    question: '¿Hacen presupuesto sin cargo?',
-    answer: 'El diagnóstico tiene un costo que se descuenta totalmente si aceptas realizar la reparación con nosotros. Así no pierdes dinero.'
-  }
-];
-
-export const offers: Offer[] = [
+export const OFFERS: Offer[] = [
   {
     id: '1',
     title: 'Pack Mantenimiento + Optimización',
-    description: 'Limpieza interna completa, cambio de pasta térmica y optimización de software. Ideal para mejorar el rendimiento.',
+    description: 'Mantenimiento preventivo completo más limpieza y optimización de software con un 20% de descuento.',
     originalPrice: 60000,
-    discountedPrice: 50000,
-    validUntil: '2024-02-28',
-    badge: 'Más Popular'
+    discountedPrice: 48000,
+    validUntil: '2024-03-31',
+    services: ['Mantenimiento Preventivo', 'Limpieza y Optimización'],
+    featured: true,
   },
   {
     id: '2',
-    title: 'Diagnóstico + Reparación Combo',
-    description: 'Diagnóstico completo más reparación básica. Ahorra en el costo del diagnóstico.',
-    originalPrice: 60000,
-    discountedPrice: 52000,
+    title: 'Diagnóstico Gratis con Reparación',
+    description: 'Si realizas la reparación con nosotros, el diagnóstico es completamente gratis.',
+    originalPrice: 15000,
+    discountedPrice: 0,
+    validUntil: '2024-12-31',
+    services: ['Diagnóstico Técnico'],
+  },
+  {
+    id: '3',
+    title: 'Upgrade Completo SSD + RAM',
+    description: 'Instalación de SSD de 480GB más 8GB de RAM con mano de obra incluida.',
+    originalPrice: 120000,
+    discountedPrice: 95000,
     validUntil: '2024-02-28',
-    badge: 'Ahorro 15%'
+    services: ['Actualización de Hardware'],
+    featured: true,
   },
-  {
-    id: '3',
-    title: 'Actualización SSD + Instalación',
-    description: 'Incluye SSD de 480GB, clonado de datos e instalación. Tu PC volará.',
-    originalPrice: 95000,
-    discountedPrice: 79000,
-    validUntil: '2024-03-15',
-    badge: 'Oferta Limitada'
-  },
-  {
-    id: '4',
-    title: 'Limpieza de Consola + 3 Juegos',
-    description: 'Limpieza profunda de tu PS4/Xbox más instalación de 3 juegos a elección.',
-    originalPrice: 55000,
-    discountedPrice: 45000,
-    validUntil: '2024-02-20',
-    badge: 'Gaming'
-  }
 ];
 
-export const galleryImages: GalleryImage[] = [
-  {
-    id: '1',
-    before: 'https://images.unsplash.com/photo-1597872250969-bc5a75c95e04?w=600&h=400&fit=crop',
-    after: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=600&h=400&fit=crop',
-    title: 'Restauración de Notebook',
-    description: 'Notebook con daños por líquido completamente restaurada'
-  },
-  {
-    id: '2',
-    before: 'https://images.unsplash.com/photo-1593640408182-31c70c826695?w=600&h=400&fit=crop',
-    after: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=600&h=400&fit=crop',
-    title: 'PC Gaming Actualizada',
-    description: 'Actualización completa con nueva GPU y refrigeración líquida'
-  },
-  {
-    id: '3',
-    before: 'https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=600&h=400&fit=crop',
-    after: 'https://images.unsplash.com/photo-1593640408182-31c70c826695?w=600&h=400&fit=crop',
-    title: 'Limpieza de PS4',
-    description: 'Consola con sobrecalentamiento solucionado tras limpieza profunda'
-  },
-  {
-    id: '4',
-    before: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=400&fit=crop',
-    after: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=600&h=400&fit=crop',
-    title: 'Reparación de Placa Madre',
-    description: 'Placa madre reparada con componentes reemplazados'
-  },
-  {
-    id: '5',
-    before: 'https://images.unsplash.com/photo-1544731612-de7f061e71f1?w=600&h=400&fit=crop',
-    after: 'https://images.unsplash.com/photo-1593640408182-31c70c826695?w=600&h=400&fit=crop',
-    title: 'Setup Organizado',
-    description: 'Organización de cables y optimización de espacio'
-  },
-  {
-    id: '6',
-    before: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&h=400&fit=crop',
-    after: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=600&h=400&fit=crop',
-    title: 'Recuperación de Datos',
-    description: 'Disco duro dañado con datos recuperados exitosamente'
-  }
-];
-
-export const contactInfo: ContactInfo = {
-  phone: '+54 11 1234-5678',
-  whatsapp: '+54 9 11 1234-5678',
-  email: 'contacto@techrepair.com',
-  address: 'Av. Tecnológica 1234, Ciudad Digital',
-  hours: [
-    { day: 'Lunes', open: '09:00', close: '19:00' },
-    { day: 'Martes', open: '09:00', close: '19:00' },
-    { day: 'Miércoles', open: '09:00', close: '19:00' },
-    { day: 'Jueves', open: '09:00', close: '19:00' },
-    { day: 'Viernes', open: '09:00', close: '19:00' },
-    { day: 'Sábado', open: '09:00', close: '13:00' },
-    { day: 'Domingo', open: 'Cerrado', close: 'Cerrado' }
-  ],
-  socialLinks: [
-    { platform: 'Facebook', url: 'https://facebook.com/techrepair' },
-    { platform: 'Instagram', url: 'https://instagram.com/techrepair' },
-    { platform: 'Twitter', url: 'https://twitter.com/techrepair' },
-    { platform: 'LinkedIn', url: 'https://linkedin.com/company/techrepair' }
-  ]
-};
-
-export const timeSlots: string[] = [
+export const TIME_SLOTS = [
   '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
   '12:00', '12:30', '14:00', '14:30', '15:00', '15:30',
-  '16:00', '16:30', '17:00', '17:30', '18:00', '18:30'
+  '16:00', '16:30', '17:00', '17:30', '18:00', '18:30',
 ];
 
-export const holidays: string[] = [
-  '2024-01-01', // Año Nuevo
-  '2024-02-12', // Carnaval
-  '2024-02-13', // Carnaval
-  '2024-03-24', // Día de la Memoria
-  '2024-03-29', // Viernes Santo
-  '2024-04-02', // Malvinas
-  '2024-05-01', // Trabajador
-  '2024-05-25', // Revolución de Mayo
-  '2024-06-17', // Güemes
-  '2024-06-20', // Belgrano
-  '2024-07-09', // Independencia
-  '2024-08-17', // San Martín
-  '2024-10-12', // Diversidad Cultural
-  '2024-11-20', // Soberanía
-  '2024-12-08', // Inmaculada Concepción
-  '2024-12-25', // Navidad
+export const OPENING_HOURS = {
+  weekdays: { open: '09:00', close: '19:00' },
+  saturday: { open: '09:00', close: '14:00' },
+  sunday: 'closed',
+};
+
+export const FAQS = [
+  {
+    question: '¿Cómo agendar una cita?',
+    answer: 'Puedes agendar una cita directamente desde nuestra web completando el formulario de reservas. Selecciona el servicio, técnico preferido, fecha y hora disponible. Recibirás una confirmación inmediata.',
+  },
+  {
+    question: '¿Puedo reprogramar mi cita?',
+    answer: 'Sí, puedes reprogramar tu cita contactándonos por WhatsApp o teléfono con al menos 24 horas de anticipación. Haremos lo posible por acomodarte en otro horario.',
+  },
+  {
+    question: '¿Cuál es el horario de atención?',
+    answer: 'Atendemos de lunes a viernes de 9:00 a 19:00 hs y sábados de 9:00 a 14:00 hs. Domingos y feriados cerramos.',
+  },
+  {
+    question: '¿Ofrecen servicio a domicilio?',
+    answer: 'Actualmente no ofrecemos servicio a domicilio, pero puedes dejar tu equipo en nuestro taller y te avisamos cuando esté listo. También coordinamos retiro y entrega por courier con costo adicional.',
+  },
+  {
+    question: '¿Qué métodos de pago aceptan?',
+    answer: 'Aceptamos efectivo, tarjetas de crédito y débito, transferencias bancarias y Mercado Pago. También ofrecemos hasta 3 cuotas sin interés en tarjetas seleccionadas.',
+  },
+  {
+    question: '¿Cuál es la garantía de las reparaciones?',
+    answer: 'Todas nuestras reparaciones tienen 90 días de garantía. Si el mismo problema vuelve a aparecer dentro de ese período, lo solucionamos sin costo adicional.',
+  },
+  {
+    question: '¿Cuánto tiempo demora una reparación típica?',
+    answer: 'Depende del tipo de reparación. Diagnósticos toman 24 horas, mantenimientos 1-2 días, reparaciones complejas 3-5 días hábiles. Te daremos un estimado preciso tras evaluar tu equipo.',
+  },
+];
+
+export const GALLERY_IMAGES = [
+  { id: '1', before: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600', after: 'https://images.unsplash.com/photo-1547082299-de196ea013d0?w=600', title: 'Reparación de Notebook' },
+  { id: '2', before: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=600', after: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=600', title: 'Limpieza de PC Gamer' },
+  { id: '3', before: 'https://images.unsplash.com/photo-1605901309584-818e25960b8f?w=600', after: 'https://images.unsplash.com/photo-1592478411213-61535fdd861d?w=600', title: 'Reparación de PS4' },
+  { id: '4', before: 'https://images.unsplash.com/photo-1588872657578-a3d2af9f8a73?w=600', after: 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?w=600', title: 'Actualización de Hardware' },
+  { id: '5', before: 'https://images.unsplash.com/photo-1597872250977-4797bf5b5fb1?w=600', after: 'https://images.unsplash.com/photo-1587202453290-1ddb785205a6?w=600', title: 'Recuperación de Datos' },
+  { id: '6', before: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600', after: 'https://images.unsplash.com/photo-1588872657578-a3d2af9f8a73?w=600', title: 'Mantenimiento Preventivo' },
 ];

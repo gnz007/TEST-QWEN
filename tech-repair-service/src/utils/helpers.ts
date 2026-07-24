@@ -15,59 +15,37 @@ export function formatPrice(price: number): string {
 
 export function formatDate(date: string): string {
   return new Intl.DateTimeFormat('es-AR', {
-    day: 'numeric',
-    month: 'long',
+    weekday: 'long',
     year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   }).format(new Date(date));
 }
 
 export function formatTime(time: string): string {
-  return time;
+  const [hours, minutes] = time.split(':');
+  const hour = parseInt(hours, 10);
+  const ampm = hour >= 12 ? 'PM' : 'AM';
+  const displayHour = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
+  return `${displayHour}:${minutes} ${ampm}`;
 }
 
-export function getDayName(date: Date): string {
+export function getDayName(date: string): string {
   const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-  return days[date.getDay()];
+  return days[new Date(date).getDay()];
 }
 
-export function isWeekend(date: Date): boolean {
-  const day = date.getDay();
+export function isWeekend(date: string): boolean {
+  const day = new Date(date).getDay();
   return day === 0 || day === 6;
 }
 
-export function isHoliday(date: Date): boolean {
-  const dateStr = date.toISOString().split('T')[0];
-  const holidays: string[] = [
-    '2024-01-01',
-    '2024-02-12',
-    '2024-02-13',
-    '2024-03-24',
-    '2024-03-29',
-    '2024-04-02',
-    '2024-05-01',
-    '2024-05-25',
-    '2024-06-17',
-    '2024-06-20',
-    '2024-07-09',
-    '2024-08-17',
-    '2024-10-12',
-    '2024-11-20',
-    '2024-12-08',
-    '2024-12-25',
-  ];
-  return holidays.includes(dateStr);
-}
-
-export function generateId(): string {
-  return Math.random().toString(36).substring(2, 9);
-}
-
 export function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
 }
 
 export function validatePhone(phone: string): boolean {
-  const phoneRegex = /^[\d\s\-\+\(\)]{8,}$/;
-  return phoneRegex.test(phone.replace(/\s/g, ''));
+  const re = /^[\d\s\-\+\(\)]{8,20}$/;
+  return re.test(phone.replace(/\s/g, ''));
 }

@@ -16,6 +16,10 @@
     to { opacity: 1; transform: scale(1); }
   }
 
+  .font-podium {
+    font-family: 'FSP DEMO - PODIUM Sharp 4.11', sans-serif;
+  }
+
   .animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;
   }

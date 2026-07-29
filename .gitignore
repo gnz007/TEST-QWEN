@@ -12,37 +12,48 @@ target/
 .env.local
 .env.*
 
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-
-# Python cache
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.python-version
 
-# Temporary files
-*.tmp
-*.temp
+# Logs
+*.log
 
-# OS files
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# Coverage reports
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Coverage
 coverage/
 htmlcov/
 .coverage
 
-# TypeScript/JavaScript build artifacts
+# TypeScript/JavaScript
 *.tsbuildinfo
+*.js.map
+*.jsx.map
+*.ts.map
 
-# Package manager lock files (existing)
-package-lock.json
+# Vite
+!.vite
+vite.config.ts.timestamp*
+
+# Temporary files
+*.tmp
+*.temp
 ```
